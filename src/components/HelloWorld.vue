@@ -9,6 +9,7 @@ const count = ref(0)
 <template>
   <h1>{{ msg }}</h1>
 
+  <a href="https://tauri.app/v1/guides/getting-started/setup/vite">TAURI GUIDE</a>
 
 </template>
 
