@@ -11,6 +11,10 @@ const count = ref(0)
 
   <a href="https://tauri.app/v1/guides/getting-started/setup/vite">TAURI GUIDE</a>
 
+  <p>
+    <a href="https://draugus.github.io/">Blog</a> | <a href="https://draugus.github.io/genshin/">Genshin</a>
+  </p>
+
 </template>
 
 <style scoped>
