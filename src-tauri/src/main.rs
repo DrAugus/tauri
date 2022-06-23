@@ -3,7 +3,7 @@ all(not(debug_assertions), target_os = "windows"),
 windows_subsystem = "windows"
 )]
 
-use tauri::{Manager, Window};
+use tauri::{Manager, Window, SystemTray, SystemTrayMenu, SystemTrayMenuItem, CustomMenuItem, Menu, MenuItem, Submenu};
 
 // the payload type must implement `Serialize` and `Clone`.
 #[derive(Clone, serde::Serialize)]
@@ -11,60 +11,113 @@ struct Payload {
     message: String,
 }
 
-// init a background process on the command, and emit periodic events only to the window that used the command
-#[tauri::command]
-fn init_process(window: Window) {
-    std::thread::spawn(move || {
-        loop {
-            window.emit("tauri://update", Payload { message: "Initialize updater and check if a new version is available".into() }).unwrap();
-            window.emit("tauri://update-install", Payload { message: "Emit Install and Download".into() }).unwrap();
-        }
-    });
+// configure the menu
+// refactor os_default menu
+fn menu_info(#[allow(unused)] app_name: &str) -> Menu {
+    let mut menu = Menu::new();
+    #[cfg(target_os = "macos")]
+    {
+        menu = menu.add_submenu(Submenu::new(
+            app_name,
+            Menu::new()
+                .add_native_item(MenuItem::About(
+                    app_name.to_string(),
+                    AboutMetadata::default(),
+                ))
+                .add_native_item(MenuItem::Separator)
+                .add_native_item(MenuItem::Services)
+                .add_native_item(MenuItem::Separator)
+                .add_native_item(MenuItem::Hide)
+                .add_native_item(MenuItem::HideOthers)
+                .add_native_item(MenuItem::ShowAll)
+                .add_native_item(MenuItem::Separator)
+                .add_native_item(MenuItem::Quit),
+        ));
+    }
+
+    #[cfg(not(target_os = "linux"))]
+        let mut edit_menu = Menu::new();
+    #[cfg(target_os = "macos")]
+    {
+        edit_menu = edit_menu.add_native_item(MenuItem::Undo);
+        edit_menu = edit_menu.add_native_item(MenuItem::Redo);
+        edit_menu = edit_menu.add_native_item(MenuItem::Separator);
+    }
+    #[cfg(not(target_os = "linux"))]
+    {
+        edit_menu = edit_menu.add_native_item(MenuItem::Cut);
+        edit_menu = edit_menu.add_native_item(MenuItem::Copy);
+        edit_menu = edit_menu.add_native_item(MenuItem::Paste);
+    }
+    #[cfg(target_os = "macos")]
+    {
+        edit_menu = edit_menu.add_native_item(MenuItem::SelectAll);
+    }
+    #[cfg(not(target_os = "linux"))]
+    {
+        menu = menu.add_submenu(Submenu::new("Edit", edit_menu));
+    }
+    #[cfg(target_os = "macos")]
+    {
+        menu = menu.add_submenu(Submenu::new(
+            "View",
+            Menu::new().add_native_item(MenuItem::EnterFullScreen),
+        ));
+    }
+
+    let mut window_menu = Menu::new();
+    window_menu = window_menu.add_native_item(MenuItem::Minimize);
+    #[cfg(target_os = "macos")]
+    {
+        window_menu = window_menu.add_native_item(MenuItem::Zoom);
+        window_menu = window_menu.add_native_item(MenuItem::Separator);
+    }
+    window_menu = window_menu.add_native_item(MenuItem::Separator);
+    window_menu = window_menu.add_native_item(MenuItem::CloseWindow);
+    #[cfg(not(target_os = "macos"))]
+    {
+        window_menu = window_menu.add_native_item(MenuItem::Quit);
+    }
+    menu = menu.add_submenu(Submenu::new("Window", window_menu));
+
+    let mut custom_menu = Menu::new();
+    custom_menu = custom_menu.add_item(
+        CustomMenuItem::new("home".to_string(), "Home")
+    );
+
+    menu = menu.add_submenu(Submenu::new("Op", custom_menu));
+
+    // menu = menu.add_submenu(Submenu::new("About", Menu::new().add_native_item(MenuItem::About())));
+
+    return menu;
+}
+
+fn system_tray() -> SystemTray {
+    // here `"quit".to_string()` defines the menu item id, and the second parameter is the menu item label.
+    let quit = CustomMenuItem::new("quit".to_string(), "Quit");
+    let hide = CustomMenuItem::new("hide".to_string(), "Hide");
+    let tray_menu = SystemTrayMenu::new()
+        .add_item(quit)
+        .add_native_item(SystemTrayMenuItem::Separator)
+        .add_item(hide);
+    let tray = SystemTray::new().with_menu(tray_menu);
+
+    return tray;
 }
 
 fn main() {
     let context = tauri::generate_context!();
+    let app_name = &context.package_info().name;
     tauri::Builder::default()
-        .menu(tauri::Menu::os_default(&context.package_info().name))
-        .setup(|app| {
-
-            // Global events [https://tauri.app/v1/guides/features/events#global-events-1]
-            // listen to the `event-name` (emitted on any window)
-            // Listen New Update Available
-            let id_update_avail = app.listen_global("tauri://update-available", move |msg| {
-                println!("New version available: {:?}", msg);
-            });
-            // Listen Install Progress
-            let id_install_progress = app.listen_global("tauri://update-status", move |msg| {
-                println!("New status: {:?}", msg);
-            });
-            // unlisten to the event using the `id` returned on the `listen_global` function
-            // an `once_global` API is also exposed on the `App` struct
-            app.unlisten(id_update_avail);
-            app.unlisten(id_install_progress);
-
-            // emit the `event-name` event to all webview windows on the frontend
-            app.emit_all("tauri://update-available", Payload { message: "new version".into() }).unwrap();
-            app.emit_all("tauri://update-status", Payload { message: "update status".into() }).unwrap();
-
-
-            // // Window-specific events [https://tauri.app/v1/guides/features/events#window-specific-events-1]
-            // // `main` here is the window label; it is defined on the window creation or under `tauri.conf.json`
-            // // the default value is `main`. note that it must be unique
-            // let main_window = app.get_window("main").unwrap();
-            //
-            // // listen to the `event-name` (emitted on the `main` window)
-            // let id_m = main_window.listen("event-name", |event| {
-            //     println!("got window event-name with payload {:?}", event.payload());
-            // });
-            // // unlisten to the event using the `id` returned on the `listen` function
-            // // an `once` API is also exposed on the `Window` struct
-            // main_window.unlisten(id_m);
-            //
-            // // emit the `event-name` event to the `main` window
-            // main_window.emit("event-name", Payload { message: "Tauri is awesome!".into() }).unwrap();
-
-            Ok(())
+        .system_tray(system_tray())
+        .menu(menu_info(app_name))
+        .on_menu_event(|event| {
+            match event.menu_item_id() {
+                "Home" => {
+                    println!("nice")
+                }
+                _ => {}
+            }
         })
         .run(context)
         .expect("error while running tauri application");

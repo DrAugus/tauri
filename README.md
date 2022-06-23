@@ -15,9 +15,16 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 ## FAQ
 
+### Update Rust
+
 ![img.png](./public/image/img.png)
 
 run `rustup update`
+
+### Error running CLI
+ 
+A public key has been found, but no private key. Make sure to set `TAURI_PRIVATE_KEY` environment variable.
+
 
 ## Intro
 

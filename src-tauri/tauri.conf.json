@@ -50,12 +50,16 @@
     "security": {
       "csp": null
     },
+    "systemTray": {
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true
+    },
     "updater": {
       "active": true,
       "endpoints": [
         "https://releases.myapp.com/{{target}}/{{current_version}}"
       ],
-      "dialog": false,
+      "dialog": true,
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDFEMjYzRTMzNEJEN0I1Q0YKUldUUHRkZExNejRtSFZkTno4VUNrejlpUDJuT1V3T0JRKzhHNnhOazdHVlNiZXYvLzBLV1czZWoK"
     },
     "windows": [
