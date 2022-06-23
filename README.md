@@ -22,9 +22,21 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 run `rustup update`
 
 ### Error running CLI
- 
-A public key has been found, but no private key. Make sure to set `TAURI_PRIVATE_KEY` environment variable.
 
+- A public key has been found, but no private key. Make sure to set `TAURI_PRIVATE_KEY` environment variable.
+
+    > Environment variabled used to sign:  
+    `TAURI_PRIVATE_KEY`  Path or String of your private key  
+    `TAURI_KEY_PASSWORD`  Your private key password (optional)  
+    > refer [tauri-action.yml env TAURI_PRIVATE_KEY](./.github/workflows/tauri-action.yml)
+
+- env error
+    ```text
+    Password:
+    <empty>
+    Deriving a key from the password and decrypting the secret key... done
+    Error running CLI: incorrect updater private key password: Wrong password for that key
+    ```
 
 ## Intro
 
