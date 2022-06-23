@@ -27,10 +27,8 @@ run `rustup update`
 
 ### Building
 
-- Windows Installer
-  run `yarn tauri build`. It will build your Frontend, compile the Rust binary, collect all external binaries and resources and finally produce neat platform-specific bundles and installers.
-- macOS Bundle
-  run `yarn tauri build`. It will build your frontend (if configured, see [beforeBuildCommand](https://tauri.app/v1/api/config#buildconfig.beforebuildcommand)), compile the Rust binary, collect all external binaries and resources and finally produce neat platform-specific bundles and installers.
+- **Windows Installer**: run `yarn tauri build`. It will build your Frontend, compile the Rust binary, collect all external binaries and resources and finally produce neat platform-specific bundles and installers.
+- **macOS Bundle**: run `yarn tauri build`. It will build your frontend (if configured, see [beforeBuildCommand](https://tauri.app/v1/api/config#buildconfig.beforebuildcommand)), compile the Rust binary, collect all external binaries and resources and finally produce neat platform-specific bundles and installers.
 
 ### Update
 
