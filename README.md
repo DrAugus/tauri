@@ -18,3 +18,20 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 ![img.png](./public/image/img.png)
 
 run `rustup update`
+
+## Intro
+
+### Dev
+
+`yarn tauri dev`
+
+### Building
+
+- Windows Installer
+  run `yarn tauri build`. It will build your Frontend, compile the Rust binary, collect all external binaries and resources and finally produce neat platform-specific bundles and installers.
+- macOS Bundle
+  run `yarn tauri build`. It will build your frontend (if configured, see [beforeBuildCommand](https://tauri.app/v1/api/config#buildconfig.beforebuildcommand)), compile the Rust binary, collect all external binaries and resources and finally produce neat platform-specific bundles and installers.
+
+### Update
+
+ATTENTION: If you lose your private key OR password, you'll not be able to sign your update package and updates will not work.

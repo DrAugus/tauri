@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "dev-app": "tauri dev",
     "build": "vue-tsc --noEmit && vite build",
+    "build-app": "tauri build",
     "preview": "vite preview",
     "tauri": "tauri"
   },
