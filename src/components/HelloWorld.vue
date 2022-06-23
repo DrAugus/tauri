@@ -15,6 +15,8 @@ const count = ref(0)
     <a href="https://draugus.github.io/">Blog</a> | <a href="https://draugus.github.io/genshin/">Genshin</a>
   </p>
 
+  <p>Just Test My First App</p>
+
 </template>
 
 <style scoped>
