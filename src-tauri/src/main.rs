@@ -3,7 +3,7 @@ all(not(debug_assertions), target_os = "windows"),
 windows_subsystem = "windows"
 )]
 
-use tauri::{Manager, Window, SystemTray, SystemTrayMenu, SystemTrayMenuItem, CustomMenuItem, Menu, MenuItem, Submenu};
+use tauri::{Manager, Window, SystemTray, SystemTrayMenu, SystemTrayMenuItem, CustomMenuItem, Menu, MenuItem, Submenu, AboutMetadata};
 
 // the payload type must implement `Serialize` and `Clone`.
 #[derive(Clone, serde::Serialize)]
