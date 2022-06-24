@@ -6,6 +6,7 @@ on:
   push:
     tags:
       - 'v*'
+      - 'app-v*'
 
 jobs:
   release:
