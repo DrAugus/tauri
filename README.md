@@ -50,7 +50,8 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 ### Dev
 
-`yarn tauri dev`
+- `yarn install`
+- `yarn tauri dev`
 
 ### Building
 
