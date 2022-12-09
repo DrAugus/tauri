@@ -35,7 +35,10 @@ fn main() {
             Ok(())
         })
         .system_tray(system_tray::system_tray())
-        .menu(menu_diy::menu_info(app_name))
+        .menu(menu_diy::init(&context))
+        .system_tray(menu_diy::tray_menu())
+        .on_menu_event(menu_diy::menu_handler)
+        .on_system_tray_event(menu_diy::tray_handler)
         .on_menu_event(|event| {
             match event.menu_item_id() {
                 "Home" => {
