@@ -9,14 +9,9 @@ use tauri::{
 pub fn init(context: &Context<EmbeddedAssets>) -> Menu {
     let name = &context.package_info().name;
     let app_menu = Submenu::new(
-        name,
+        name.to_uppercase(),
         Menu::new()
             .add_native_item(MenuItem::About(name.into(), AboutMetadata::default()))
-            .add_native_item(MenuItem::Separator)
-            .add_item(
-                CustomMenuItem::new("inject_script".to_string(), "Inject Script")
-                    .accelerator("CmdOrCtrl+J"),
-            )
             .add_native_item(MenuItem::Separator)
             .add_native_item(MenuItem::Hide)
             .add_native_item(MenuItem::HideOthers)
@@ -62,6 +57,14 @@ pub fn init(context: &Context<EmbeddedAssets>) -> Menu {
             ),
     );
 
+    let link_menu= Submenu::new(
+        "Links",
+        Menu::new()
+            .add_item(CustomMenuItem::new("docus".to_string(), "Augus Docus"))
+            .add_item(CustomMenuItem::new("website".to_string(), "Augus Site"))
+            .add_item(CustomMenuItem::new("genshin_timeline".to_string(), "Genshin Timeline"))
+    );
+
     let help_menu = Submenu::new(
         "Help",
         Menu::new()
@@ -76,6 +79,7 @@ pub fn init(context: &Context<EmbeddedAssets>) -> Menu {
         .add_submenu(app_menu)
         .add_submenu(edit_menu)
         .add_submenu(view_menu)
+        .add_submenu(link_menu)
         .add_submenu(help_menu)
 }
 
@@ -83,12 +87,12 @@ pub fn init(context: &Context<EmbeddedAssets>) -> Menu {
 pub fn menu_handler(event: WindowMenuEvent<tauri::Wry>) {
     let win = Some(event.window()).unwrap();
     let app = win.app_handle();
-    let script_path = utils::script_path().to_string_lossy().to_string();
     let issues_url = "https://github.com/DrAugus/augus-tauri/issues".to_string();
+    let docus_url = "https://augus-docus.netlify.app/".to_string();
+    let website_url =  "https://draugus.github.io/".to_string();
+    let genshin_timeline_url =  "https://draugus.github.io/game/genshin/timeline".to_string();
 
     match event.menu_item_id() {
-        // App
-        "inject_script" => inject_script(&app, script_path),
         // View
         "reload" => win.eval("window.location.reload()").unwrap(),
         "go_back" => win.eval("window.history.go(-1)").unwrap(),
@@ -110,6 +114,10 @@ pub fn menu_handler(event: WindowMenuEvent<tauri::Wry>) {
                 behavior: "smooth"})"#,
             )
             .unwrap(),
+        // Link
+        "docus" => inject_script(&app, docus_url),
+        "website" => inject_script(&app, website_url),
+        "genshin_timeline" => inject_script(&app, genshin_timeline_url),
         // Help
         "report_bug" => inject_script(&app, issues_url),
         "dev_tools" => {
@@ -137,7 +145,6 @@ pub fn tray_menu() -> SystemTray {
 
 // --- SystemTray Event
 pub fn tray_handler(app: &AppHandle, event: SystemTrayEvent) {
-    let script_path = utils::script_path().to_string_lossy().to_string();
     let win = app.get_window("core").unwrap();
 
     if let SystemTrayEvent::MenuItemClick { id, .. } = event {
@@ -145,7 +152,6 @@ pub fn tray_handler(app: &AppHandle, event: SystemTrayEvent) {
             "quit" => std::process::exit(0),
             "show" => win.show().unwrap(),
             "hide" => win.hide().unwrap(),
-            "inject_script" => inject_script(app, script_path),
             _ => (),
         }
     }
