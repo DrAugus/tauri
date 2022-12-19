@@ -12,10 +12,13 @@ const count = ref(0)
   <a href="https://tauri.app/v1/guides/getting-started/setup/vite">TAURI GUIDE</a>
 
   <p>
-    <a href="https://draugus.github.io/">Blog</a> | <a href="https://draugus.github.io/game/genshin/timeline">Genshin</a>
+    <a href="https://draugus.github.io/">Genshin</a>
   </p>
 
-  <p>第一个多平台软件（当前处于测试开发期）</p>
+  <p>第一个多平台软件</p>
+
+  <p>当前处于测试开发期...摸鱼...咕咕咕</p>
+
 
 </template>
 
