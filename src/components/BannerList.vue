@@ -3,20 +3,18 @@
 
     <v-list lines="two">
 
-        <v-list-item v-for="(v, i) in WISH.characters" :key="imgName(v)" :title="v.name" :subtitle="v.shortName"
-            :prepend-avatar="combineCharImage(v.wish5star)" :value="imgName(v)"
-            :active-color="colorCharEle(v.wish5star)" rounded="xl">
+        <v-list-item v-for="(v, i) in WISH.characters" :key="imgName(v)" :title="v.wishName"
+            :subtitle="charZH(v.wish5star)" :prepend-avatar="combineCharImage(v.wish5star)" :value="imgName(v)"
+            :active-color="colorCharEle(v.wish5star)" rounded="xl" @click="sendImg(v)">
 
         </v-list-item>
 
     </v-list>
 
-    <BannerPage :img="bannerImg"></BannerPage>
 
 </template>
 
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { WISH } from '../script/genshin/wish'
 import { replaceAndLow, ElementColor } from '../script/genshin/utils'
 import { CHARACTER, Characters } from '../script/genshin/characters'
@@ -34,25 +32,23 @@ const colorCharEle = (v: string) => {
     return ElementColor[index_ele]
 }
 
+const charZH = (v: string) => Object.values(CHARACTER)[Object.keys(CHARACTER).indexOf(v)].name;
+
 let bannerImg = ''
 
-const showBannerPage = (v: string) => {
+const showBannerPage = (v: any) => {
     bannerImg = combineWishImage(imgName(v))
-    console.log(bannerImg)
 }
 
-// defineComponent({
-//     data(){
-//         return {
-//             bannerImg :'',
-//         }
-//     },
-//     methods:{
-//         showBannerPage(v:string){
-//             this.bannerImg = combineWishImage(imgName(v))
-//         }
-//     },
-// })
+const emit = defineEmits(['send-img'])
+
+const sendImg = (v: any) => {
+
+    showBannerPage(v)
+    emit('send-img', bannerImg)
+    console.log("bannerImg", bannerImg)
+}
+
 
 
 </script>

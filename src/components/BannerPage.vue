@@ -1,12 +1,15 @@
 <template>
-    <v-img class="bg-white" width="300" :aspect-ratio="1" :src="img" cover></v-img>
+
+    <v-img class="bg-white" height="300" :aspect-ratio="1" :src="props.img"></v-img>
+
+    link | {{ props.img }}
+
 </template>
 
 <script setup lang="ts">
-defineProps({
-    img: {
-        type: String,
-        default: ''
-    },
-})
+const props = defineProps<{
+    img: string
+}>()
+
+console.log("img", props.img)
 </script>

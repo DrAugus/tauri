@@ -15,13 +15,14 @@
 
             <v-navigation-drawer permanent>
 
-                <BannerList>
+                <BannerList v-on:send-img="showshow">
 
                 </BannerList>
             </v-navigation-drawer>
 
             <v-main>
-                <slot></slot>
+                <slot></slot> 
+                <BannerPage v-bind:img="aa"></BannerPage>
             </v-main>
         </v-layout>
     </v-card>
@@ -29,23 +30,17 @@
 
 
 <script setup lang="ts">
-
 import BannerList from './BannerList.vue'
 import BannerPage from './BannerPage.vue'
 import HelloWorld from './HelloWorld.vue';
-defineProps({
-    icon: {
-        type: String,
-        default: ''
-    },
-    iconClass: {
-        type: String,
-        default: ''
-    },
-    blurry: {
-        type: Boolean,
-        default: true,
-        required: false
-    }
-})
+
+let aa = 'https://github.com/DrAugus/data/blob/master/game/genshin/wish/dance_of_lanterns_1.jpg?raw=true'
+// aa = ''
+
+const showshow = (v: string) => {
+    aa = v;
+    console.log("aa", aa)
+}
+
+
 </script>
