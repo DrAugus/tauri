@@ -15,7 +15,9 @@
 
             <v-navigation-drawer permanent>
 
-                <BannerList @on-click=""></BannerList>
+                <BannerList>
+
+                </BannerList>
             </v-navigation-drawer>
 
             <v-main>
