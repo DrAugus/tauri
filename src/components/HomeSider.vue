@@ -21,26 +21,38 @@
             </v-navigation-drawer>
 
             <v-main>
-                <slot></slot> 
-                <BannerPage v-bind:img="aa"></BannerPage>
+                <slot></slot>
+                <BannerPage v-bind:img="state.aa"></BannerPage>
             </v-main>
         </v-layout>
     </v-card>
 </template>
 
 
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent, reactive } from 'vue';
 import BannerList from './BannerList.vue'
 import BannerPage from './BannerPage.vue'
 import HelloWorld from './HelloWorld.vue';
 
-let aa = 'https://github.com/DrAugus/data/blob/master/game/genshin/wish/dance_of_lanterns_1.jpg?raw=true'
-// aa = ''
-
-const showshow = (v: string) => {
-    aa = v;
-    console.log("aa", aa)
-}
-
-
+export default defineComponent({
+    setup() {
+        const state = reactive({
+            aa: '',
+        })
+        return {
+            state
+        }
+    },
+    components: {
+        BannerList,
+        BannerPage,
+    },
+    methods: {
+        showshow(v: string) {
+            this.state.aa = v;
+            console.log("aa", v)
+        }
+    },
+})
 </script>
