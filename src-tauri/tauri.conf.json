@@ -60,7 +60,7 @@
         "https://github.com/DrAugus/augus-tauri/releases/tag/augus-app-v{{current_version}}"
       ],
       "dialog": true,
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDU5RTc0MTVGOTQ4M0RDM0MKUldRODNJT1VYMEhuV2NrU1ZwRUZSSWlMZTVzcm9OQVpWdFdSamZVU1ozbU9Vc3Z5Z1BaZXE3ODQK"
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDFEMjYzRTMzNEJEN0I1Q0YKUldUUHRkZExNejRtSFZkTno4VUNrejlpUDJuT1V3T0JRKzhHNnhOazdHVlNiZXYvLzBLV1czZWoK"
     },
     "windows": [
       {
