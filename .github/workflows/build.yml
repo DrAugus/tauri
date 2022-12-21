@@ -14,13 +14,15 @@ jobs:
       fail-fast: false
       matrix:
         platform: [ macos-latest, ubuntu-latest, windows-latest ]
-        node: ['16', '18']
+        node: ['16']
 
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v3
       - name: install pnpm
-        uses: pnpm/action-setup@v2      
+        uses: pnpm/action-setup@v2   
+        with:
+              version: 7            
       - name: setup node ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
