@@ -1,14 +1,14 @@
 {
   "$schema": "..\\node_modules/@tauri-apps/cli\\schema.json",
   "build": {
-    "beforeBuildCommand": "yarn build",
-    "beforeDevCommand": "yarn dev",
+    "beforeBuildCommand": "pnpm build",
+    "beforeDevCommand": "pnpm dev",
     "devPath": "http://localhost:3000",
     "distDir": "../dist"
   },
   "package": {
     "productName": "augus",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "tauri": {
     "allowlist": {
@@ -57,10 +57,10 @@
     "updater": {
       "active": true,
       "endpoints": [
-        "https://releases.myapp.com/{{target}}/{{current_version}}"
+        "https://github.com/DrAugus/augus-tauri/releases/tag/augus-app-v{{current_version}}"
       ],
       "dialog": true,
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDFEMjYzRTMzNEJEN0I1Q0YKUldUUHRkZExNejRtSFZkTno4VUNrejlpUDJuT1V3T0JRKzhHNnhOazdHVlNiZXYvLzBLV1czZWoK"
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDU5RTc0MTVGOTQ4M0RDM0MKUldRODNJT1VYMEhuV2NrU1ZwRUZSSWlMZTVzcm9OQVpWdFdSamZVU1ozbU9Vc3Z5Z1BaZXE3ODQK"
     },
     "windows": [
       {
