@@ -17,13 +17,13 @@ devDependencies:
     version: 1.2.3
   '@vitejs/plugin-vue':
     specifier: 4.1.0
-    version: 4.1.0(vite@4.3.0)(vue@3.2.47)
+    version: 4.1.0(vite@4.3.1)(vue@3.2.47)
   typescript:
     specifier: 5.0.4
     version: 5.0.4
   vite:
-    specifier: 4.3.0
-    version: 4.3.0
+    specifier: 4.3.1
+    version: 4.3.1
   vue-tsc:
     specifier: 1.2.0
     version: 1.2.0(typescript@5.0.4)
@@ -353,14 +353,14 @@ packages:
       '@tauri-apps/cli-win32-x64-msvc': 1.2.3
     dev: true
 
-  /@vitejs/plugin-vue@4.1.0(vite@4.3.0)(vue@3.2.47):
+  /@vitejs/plugin-vue@4.1.0(vite@4.3.1)(vue@3.2.47):
     resolution: {integrity: sha512-++9JOAFdcXI3lyer9UKUV4rfoQ3T1RN8yDqoCLar86s0xQct5yblxAE+yWgRnU5/0FOlVCpTZpYSBV/bGWrSrQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.3.0
+      vite: 4.3.1
       vue: 3.2.47
     dev: true
 
@@ -601,8 +601,8 @@ packages:
     hasBin: true
     dev: true
 
-  /vite@4.3.0:
-    resolution: {integrity: sha512-JTGFgDh3dVxeGBpuQX04Up+JZmuG6wu9414Ei36vQzaEruY/M4K0AgwtuB2b4HaBgB7R8l+LHxjB0jcgz4d2qQ==}
+  /vite@4.3.1:
+    resolution: {integrity: sha512-EPmfPLAI79Z/RofuMvkIS0Yr091T2ReUoXQqc5ppBX/sjFRhHKiPPF/R46cTdoci/XgeQpB23diiJxq5w30vdg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
