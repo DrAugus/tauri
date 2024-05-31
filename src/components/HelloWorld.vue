@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref} from 'vue'
+import { ref } from 'vue'
 
 defineProps<{ msg: string }>()
 
@@ -12,7 +12,8 @@ const count = ref(0)
   <a href="https://tauri.app/v1/guides/getting-started/setup/vite">TAURI GUIDE</a>
 
   <p>
-    <a href="https://draugus.github.io/">Genshin</a>
+    <a href="https://draugus.github.io/">Game Site</a> <br />
+    <a href="https://augusmeow.github.io/">Augus Homepage</a>
   </p>
 
   <p>第一个多平台软件</p>

@@ -60,8 +60,8 @@ pub fn init(context: &Context<EmbeddedAssets>) -> Menu {
     let link_menu= Submenu::new(
         "Links",
         Menu::new()
-            .add_item(CustomMenuItem::new("docus".to_string(), "Augus Docus"))
-            .add_item(CustomMenuItem::new("website".to_string(), "Augus Site"))
+            .add_item(CustomMenuItem::new("homepage".to_string(), "Augus Homepage"))
+            .add_item(CustomMenuItem::new("game".to_string(), "Augus Game Site"))
             .add_item(CustomMenuItem::new("genshin_timeline".to_string(), "Genshin Timeline"))
     );
 
@@ -87,10 +87,10 @@ pub fn init(context: &Context<EmbeddedAssets>) -> Menu {
 pub fn menu_handler(event: WindowMenuEvent<tauri::Wry>) {
     let win = Some(event.window()).unwrap();
     let app = win.app_handle();
-    let issues_url = "https://github.com/DrAugus/augus-tauri/issues".to_string();
-    let docus_url = "https://augus-docus.netlify.app/".to_string();
-    let website_url =  "https://draugus.github.io/".to_string();
-    let genshin_timeline_url =  "https://draugus.github.io/game/genshin/timeline".to_string();
+    let url_issues = "https://github.com/DrAugus/tauri/issues".to_string();
+    let url_homepage = "https://augusmeow.github.io/".to_string();
+    let url_game =  "https://augusmeow.github.io/".to_string();
+    let url_genshin_timeline =  "https://draugus.github.io/genshin/timeline".to_string();
 
     match event.menu_item_id() {
         // View
@@ -115,11 +115,11 @@ pub fn menu_handler(event: WindowMenuEvent<tauri::Wry>) {
             )
             .unwrap(),
         // Link
-        "docus" => inject_script(&app, docus_url),
-        "website" => inject_script(&app, website_url),
-        "genshin_timeline" => inject_script(&app, genshin_timeline_url),
+        "homepage" => inject_script(&app, url_homepage),
+        "game" => inject_script(&app, url_game),
+        "genshin_timeline" => inject_script(&app, url_genshin_timeline),
         // Help
-        "report_bug" => inject_script(&app, issues_url),
+        "report_bug" => inject_script(&app, url_issues),
         "dev_tools" => {
             win.open_devtools();
             win.close_devtools();
