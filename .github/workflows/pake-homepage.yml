@@ -58,8 +58,8 @@ jobs:
       - name: pake url
         run: pake https://augusmeow.github.io/ --name Augus
       - name: Upload archive
-            uses: actions/upload-artifact@v3
-            with:
-              name: output-${{ matrix.platform }}.zip
-              path: node_modules/pake-cli/output/*
-              retention-days: 3
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-${{ matrix.platform }}.zip
+          path: node_modules/pake-cli/output/*
+          retention-days: 3
