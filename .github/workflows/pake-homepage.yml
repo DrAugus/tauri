@@ -37,6 +37,22 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y webkit2gtk-4.0
+      - name: install others lib (ubuntu only)
+        if: matrix.platform == 'ubuntu-latest'
+        run: |
+          sudo apt install libdbus-1-dev \
+            libsoup2.4-dev \
+            libjavascriptcoregtk-4.0-dev \
+            libwebkit2gtk-4.0-dev \
+            build-essential \
+            curl \
+            wget \
+            libssl-dev \
+            libgtk-3-dev \
+            libayatana-appindicator3-dev \
+            librsvg2-dev \
+            gnome-video-effects \
+            gnome-video-effects-extra
       - name: install pake-cli
         run: pnpm install -g pake-cli
       - name: pake url
