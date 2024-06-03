@@ -57,9 +57,12 @@ jobs:
         run: pnpm install -g pake-cli
       - name: pake url
         run: pake https://augusmeow.github.io/ --name Augus
-      - name: Upload archive
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: output-${{ matrix.platform }}.zip
-          path: node_modules/pake-cli/output/*
+          path: |
+            *.dmg
+            *.deb
+            *.msi
           retention-days: 3
