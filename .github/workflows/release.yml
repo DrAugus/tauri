@@ -5,10 +5,10 @@ name: Release
 on:
   push:
     branches:
-      - release  
+      - release
     tags:
-      - 'v*'
-      - 'augus-v*'
+      - "v*"
+      - "augus-v*"
 
 jobs:
   release:

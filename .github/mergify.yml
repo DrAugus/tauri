@@ -25,12 +25,3 @@ pull_request_rules:
     actions:
       merge:
         method: merge
-
-  - name: automatic merge for auto pull requests
-    conditions:
-      - title=pulling refs/heads/dev into master
-      - check-success~=^deploy
-      - check-success=Summary
-    actions:
-      merge:
-        method: merge
