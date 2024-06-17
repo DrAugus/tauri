@@ -4,8 +4,8 @@ on:
     branches:
       - release
     tags:
-      - 'v*'
-      - 'augus-v*'
+      - "v*"
+      - "augus-v*"
 
 jobs:
   publish-tauri:
@@ -13,20 +13,20 @@ jobs:
       fail-fast: false
       matrix:
         platform: [macos-latest, ubuntu-latest, windows-latest]
-        node: ['16']
+        node: ["16"]
 
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - name: install pnpm
-        uses: pnpm/action-setup@v2     
+        uses: pnpm/action-setup@v2
         with:
-              version: 7          
+          version: 7
       - name: setup node ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-          cache: pnpm  
+          cache: pnpm
       - name: install Rust stable
         uses: actions-rs/toolchain@v1
         with:
@@ -37,7 +37,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y webkit2gtk-4.0
       - name: install app dependencies and build it
-        run: pnpm install --frozen-lockfile && pnpm build
+        run: pnpm install --no-frozen-lockfile && pnpm build
       - uses: tauri-apps/tauri-action@v0
         env:
           TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
