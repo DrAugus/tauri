@@ -58,7 +58,7 @@ jobs:
       - name: pake url
         run: pake https://augusmeow.github.io/ --name Augus
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: output-${{ matrix.platform }}.zip
           path: |
