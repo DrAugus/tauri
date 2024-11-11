@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@tauri-apps/api':
-    specifier: 2.1.0
-    version: 2.1.0
+    specifier: 2.1.1
+    version: 2.1.1
   vue:
     specifier: 3.5.12
     version: 3.5.12(typescript@5.6.3)
@@ -395,8 +395,8 @@ packages:
     dev: true
     optional: true
 
-  /@tauri-apps/api@2.1.0:
-    resolution: {integrity: sha512-1w/JygZOiUtdOU7qart78MaB4/qayZ2heB793KhbZRS7I9q4sxXcXaB7He6uFlprD8w5TI9P8HCuEByCvWRtfw==}
+  /@tauri-apps/api@2.1.1:
+    resolution: {integrity: sha512-fzUfFFKo4lknXGJq8qrCidkUcKcH2UHhfaaCNt4GzgzGaW2iS26uFOg4tS3H4P8D6ZEeUxtiD5z0nwFF0UN30A==}
     dev: false
 
   /@tauri-apps/cli-darwin-arm64@2.1.0:
