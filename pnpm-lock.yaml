@@ -13,7 +13,7 @@ dependencies:
     version: 3.5.13(typescript@5.6.3)
   vuetify:
     specifier: ^3.0.5
-    version: 3.7.4(typescript@5.6.3)(vue@3.5.13)
+    version: 3.7.5(typescript@5.6.3)(vue@3.5.13)
 
 devDependencies:
   '@tauri-apps/cli':
@@ -886,8 +886,8 @@ packages:
       '@vue/shared': 3.5.13
       typescript: 5.6.3
 
-  /vuetify@3.7.4(typescript@5.6.3)(vue@3.5.13):
-    resolution: {integrity: sha512-Y8UU5wUDQXC3oz2uumPb8IOdvB4XMCxtxnmqdOc+LihNuPlkSgxIwf92ndRzbOtJFKHsggFUxpyLqpQp+A+5kg==}
+  /vuetify@3.7.5(typescript@5.6.3)(vue@3.5.13):
+    resolution: {integrity: sha512-5aiSz8WJyGzYe3yfgDbzxsFATwHvKtdvFAaUJEDTx7xRv55s3YiOho/MFhs5iTbmh2VT4ToRgP0imBUP660UOw==}
     engines: {node: ^12.20 || >=14.13}
     peerDependencies:
       typescript: '>=4.7'
