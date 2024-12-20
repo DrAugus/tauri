@@ -2,7 +2,6 @@ pull_request_rules:
   - name: automatic merge for ImgBot pull requests
     conditions:
       - author=imgbot[bot]
-      - check-success=Summary
     actions:
       merge:
         method: merge
@@ -18,7 +17,6 @@ pull_request_rules:
           - and:
               - author=renovate[bot]
       - check-success~=^deploy
-      - check-success=Summary
     actions:
       merge:
         method: merge

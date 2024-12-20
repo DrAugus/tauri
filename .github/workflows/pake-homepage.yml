@@ -53,6 +53,7 @@ jobs:
             librsvg2-dev \
             gnome-video-effects \
             gnome-video-effects-extra
+          export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig/:$PKG_CONFIG_PATH
       - name: install pake-cli
         run: pnpm install -g pake-cli
       - name: pake url
