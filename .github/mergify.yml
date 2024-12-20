@@ -7,19 +7,16 @@ pull_request_rules:
       merge:
         method: merge
 
-  - name: automatic merge for Renovate pull requests
+  - name: automatic merge for dependabot/Renovate/Requires.io pull requests
     conditions:
-      - author=renovate[bot]
-      - check-success~=^deploy
-      - check-success=Summary
-    actions:
-      merge:
-        method: merge
-
-  - name: automatic merge for Requires.io pull requests
-    conditions:
-      - title~=^\[requires.io\]
-      - head~=^requires-io
+      - or:
+          - and:
+              - author=dependabot[bot]
+          - and:
+              - title~=^\[requires.io\]
+              - head~=^requires-io
+          - and:
+              - author=renovate[bot]
       - check-success~=^deploy
       - check-success=Summary
     actions:
