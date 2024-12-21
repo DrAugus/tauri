@@ -1,10 +1,9 @@
-
 <template>
 
     <v-list lines="two">
 
-        <v-list-item v-for="(v, i) in WISH.characters" :key="imgName(v)" :title="v.wishName"
-            :subtitle="charZH(v.wish5star)" :prepend-avatar="combineCharImage(v.wish5star)" :value="imgName(v)"
+        <v-list-item v-for="(v, i) in WISH.characters" :key="i" :title="v.wishName" :subtitle="charZH(v.wish5star)"
+            :prepend-avatar="combineCharImage(v.wish5star)" :value="imgName(v)"
             :active-color="colorCharEle(v.wish5star)" rounded="xl" @click="sendImg(v)">
 
         </v-list-item>
@@ -15,11 +14,11 @@
 </template>
 
 <script setup lang="ts">
-import { WISH } from '../script/genshin/wish'
-import { replaceAndLow, ElementColor } from '../script/genshin/utils'
-import { CHARACTER, Characters } from '../script/genshin/characters'
+import { WISH } from '../script/genshin/wish';
+import { ElementColor } from '../script/genshin/utils';
+import { CHARACTER } from '../script/genshin/characters';
 
-import BannerPage from './BannerPage.vue';
+// import BannerPage from './BannerPage.vue';
 
 const imgName = (value: any) => value.name.concat('_' + value.image + '.jpg').toLowerCase().replace(/ /g, '_')
 

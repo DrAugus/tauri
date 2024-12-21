@@ -1,25 +1,28 @@
 {
-  "name": "augus",
+  "name": "augus-tauri",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev-app": "tauri dev",
     "build": "vue-tsc --noEmit && vite build",
-    "build-app": "tauri build",
     "preview": "vite preview",
+    "tauri-dev": "tauri dev",
+    "android": "tauri android",
     "tauri": "tauri"
   },
   "dependencies": {
-    "@tauri-apps/api": "2.1.1",
-    "vue": "3.5.13",
-    "vuetify": "^3.0.5"
+    "@tauri-apps/api": "^2.1.1",
+    "@tauri-apps/plugin-shell": "^2.2.0",
+    "@tauri-apps/plugin-updater": "~2",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "2.1.0",
-    "@vitejs/plugin-vue": "5.2.1",
-    "typescript": "5.6.3",
-    "vite": "5.4.11",
-    "vue-tsc": "2.1.10"
+    "@tauri-apps/cli": "^2.1.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11",
+    "vue-tsc": "^2.1.10"
   }
 }

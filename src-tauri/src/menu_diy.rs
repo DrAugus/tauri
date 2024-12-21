@@ -1,8 +1,7 @@
 use crate::utils;
 use tauri::{
-    utils::assets::EmbeddedAssets, AboutMetadata, AppHandle, Context, CustomMenuItem, Manager,
-    Menu, MenuItem, Submenu, SystemTray, SystemTrayEvent, SystemTrayMenu, SystemTrayMenuItem,
-    WindowMenuEvent,
+    menu::Menu, menu::MenuItem, utils::assets::EmbeddedAssets, AboutMetadata, AppHandle, Context,
+    CustomMenuItem, Manager, Menu, MenuItem, Submenu, TrayIcon, TrayIconEvent, WindowMenuEvent,
 };
 
 // --- Menu
@@ -57,12 +56,18 @@ pub fn init(context: &Context<EmbeddedAssets>) -> Menu {
             ),
     );
 
-    let link_menu= Submenu::new(
+    let link_menu = Submenu::new(
         "Links",
         Menu::new()
-            .add_item(CustomMenuItem::new("homepage".to_string(), "Augus Homepage"))
+            .add_item(CustomMenuItem::new(
+                "homepage".to_string(),
+                "Augus Homepage",
+            ))
             .add_item(CustomMenuItem::new("game".to_string(), "Augus Game Site"))
-            .add_item(CustomMenuItem::new("genshin_timeline".to_string(), "Genshin Timeline"))
+            .add_item(CustomMenuItem::new(
+                "genshin_timeline".to_string(),
+                "Genshin Timeline",
+            )),
     );
 
     let help_menu = Submenu::new(
@@ -89,8 +94,8 @@ pub fn menu_handler(event: WindowMenuEvent<tauri::Wry>) {
     let app = win.app_handle();
     let url_issues = "https://github.com/DrAugus/tauri/issues".to_string();
     let url_homepage = "https://augusmeow.github.io/".to_string();
-    let url_game =  "https://augusmeow.github.io/".to_string();
-    let url_genshin_timeline =  "https://draugus.github.io/genshin/timeline".to_string();
+    let url_game = "https://augusmeow.github.io/".to_string();
+    let url_genshin_timeline = "https://draugus.github.io/genshin/timeline".to_string();
 
     match event.menu_item_id() {
         // View
@@ -128,26 +133,26 @@ pub fn menu_handler(event: WindowMenuEvent<tauri::Wry>) {
     }
 }
 
-// --- SystemTray Menu
-pub fn tray_menu() -> SystemTray {
-    SystemTray::new().with_menu(
-        SystemTrayMenu::new()
+// --- TrayIcon Menu
+pub fn tray_menu() -> TrayIcon {
+    TrayIcon::new().with_menu(
+        menu::Menu::new()
             .add_item(CustomMenuItem::new("show".to_string(), "Show Augus"))
             .add_item(CustomMenuItem::new("hide".to_string(), "Hide Augus"))
             .add_item(CustomMenuItem::new(
                 "inject_script".to_string(),
                 "Inject Script",
             ))
-            .add_native_item(SystemTrayMenuItem::Separator)
+            .add_native_item(menu::MenuItem::Separator)
             .add_item(CustomMenuItem::new("quit".to_string(), "Quit Augus")),
     )
 }
 
-// --- SystemTray Event
-pub fn tray_handler(app: &AppHandle, event: SystemTrayEvent) {
-    let win = app.get_window("core").unwrap();
+// --- TrayIcon Event
+pub fn tray_handler(app: &AppHandle, event: TrayIconEvent) {
+    let win = app.get_webview_window("core").unwrap();
 
-    if let SystemTrayEvent::MenuItemClick { id, .. } = event {
+    if let TrayIconEvent::MenuItemClick { id, .. } = event {
         match id.as_str() {
             "quit" => std::process::exit(0),
             "show" => win.show().unwrap(),

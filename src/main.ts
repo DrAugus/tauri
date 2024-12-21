@@ -1,15 +1,22 @@
-import {createApp} from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+// https://router.vuejs.org/zh/
+import { createMemoryHistory, createRouter } from 'vue-router';
+import App from "./App.vue";
 
-// Vuetify
-import 'vuetify/styles'
-import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
+import Home from './components/Home.vue';
+import Study from './components/Study.vue';
+import Play from './components/Play.vue';
 
-const vuetify = createVuetify({
-  components,
-  directives,
+const routes = [
+    { path: '/', name: "home", component: Home },
+    { path: '/study', name: "study", component: Study },
+    { path: '/play', name: "play", component: Play },
+]
+
+const router = createRouter({
+    history: createMemoryHistory(),
+    routes,
 })
 
-createApp(App).use(vuetify).mount('#app')
+createApp(App)
+    .use(router).mount("#app");

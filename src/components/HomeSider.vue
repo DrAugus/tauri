@@ -33,7 +33,6 @@
 import { defineComponent, reactive } from 'vue';
 import BannerList from './BannerList.vue'
 import BannerPage from './BannerPage.vue'
-import HelloWorld from './HelloWorld.vue';
 
 export default defineComponent({
     setup() {

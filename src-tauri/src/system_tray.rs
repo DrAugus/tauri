@@ -1,14 +1,26 @@
-use tauri::{CustomMenuItem, SystemTray, SystemTrayMenu, SystemTrayMenuItem};
+use tauri::{
+    menu::{Menu, MenuItem},
+    tray::{TrayIcon, TrayIconBuilder},
+    App,
+};
 
-pub(crate) fn system_tray() -> SystemTray {
-    // here `"quit".to_string()` defines the menu item id, and the second parameter is the menu item label.
-    let quit = CustomMenuItem::new("quit".to_string(), "Quit");
-    let hide = CustomMenuItem::new("hide".to_string(), "Hide");
-    let tray_menu = SystemTrayMenu::new()
-        .add_item(quit)
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(hide);
-    let tray = SystemTray::new().with_menu(tray_menu);
+pub(crate) fn system_tray(app: &mut App) -> Result<TrayIcon, Box<dyn std::error::Error>> {
+    let quit_i = MenuItem::with_id(app, "quit", "Quit", true, None::<&str>)?;
+    let hide_i = MenuItem::with_id(app, "hide", "Hide", true, None::<&str>)?;
+    // let separator = MenuItem::Separator;
+    // let separator = MenuItem::separator(app)?;
+    let menu = Menu::with_items(app, &[&quit_i, &hide_i])?;
 
-    return tray;
+    let tray = TrayIconBuilder::new()
+        .menu(&menu)
+        .menu_on_left_click(true)
+        .on_menu_event(move |app, event| match event.id().as_ref() {
+            "quit" => {
+                println!("quit clicked");
+            }
+            _ => (),
+        })
+        .build(app)?;
+
+    Ok(tray)
 }

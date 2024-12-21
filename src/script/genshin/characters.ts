@@ -1,4 +1,4 @@
-import {City, Element, ElementZH, Weapon, Artifacts} from "./utils";
+import { City, Element, Weapon } from "./utils";
 
 export interface Cultivate {
   weapons: string
