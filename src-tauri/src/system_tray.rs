@@ -4,6 +4,7 @@ use tauri::{
     App,
 };
 
+#[allow(unused)]
 pub(crate) fn system_tray(app: &mut App) -> Result<TrayIcon, Box<dyn std::error::Error>> {
     let quit_i = MenuItem::with_id(app, "quit", "Quit", true, None::<&str>)?;
     let hide_i = MenuItem::with_id(app, "hide", "Hide", true, None::<&str>)?;
@@ -14,7 +15,7 @@ pub(crate) fn system_tray(app: &mut App) -> Result<TrayIcon, Box<dyn std::error:
     let tray = TrayIconBuilder::new()
         .menu(&menu)
         .menu_on_left_click(true)
-        .on_menu_event(move |app, event| match event.id().as_ref() {
+        .on_menu_event(move |_app, event| match event.id().as_ref() {
             "quit" => {
                 println!("quit clicked");
             }

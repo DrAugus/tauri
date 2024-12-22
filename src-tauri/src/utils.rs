@@ -6,6 +6,7 @@ use std::{
 };
 use tauri::utils::config::Config;
 
+#[allow(unused)]
 pub fn get_tauri_conf() -> Option<Config> {
     let config_file = include_str!("../tauri.conf.json");
     let config: Config =
@@ -13,10 +14,12 @@ pub fn get_tauri_conf() -> Option<Config> {
     Some(config)
 }
 
+#[allow(unused)]
 pub fn exists(path: &Path) -> bool {
     Path::new(path).exists()
 }
 
+#[allow(unused)]
 pub fn create_file(path: &Path) -> Result<File> {
     if let Some(p) = path.parent() {
         fs::create_dir_all(p)?
@@ -24,6 +27,7 @@ pub fn create_file(path: &Path) -> Result<File> {
     File::create(path).map_err(Into::into)
 }
 
+#[allow(unused)]
 pub fn open_file(path: PathBuf) {
     #[cfg(target_os = "macos")]
     Command::new("open").arg("-R").arg(path).spawn().unwrap();
