@@ -21,9 +21,9 @@ dependencies:
 
 devDependencies:
   '@tauri-apps/cli': 2.2.5
-  '@vitejs/plugin-vue': 5.2.1_vite@5.4.11+vue@3.5.13
+  '@vitejs/plugin-vue': 5.2.1_vite@5.4.14+vue@3.5.13
   typescript: 5.7.3
-  vite: 5.4.11
+  vite: 5.4.14
   vue-tsc: 2.2.0_typescript@5.7.3
 
 packages:
@@ -539,14 +539,14 @@ packages:
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
     dev: true
 
-  /@vitejs/plugin-vue/5.2.1_vite@5.4.11+vue@3.5.13:
+  /@vitejs/plugin-vue/5.2.1_vite@5.4.14+vue@3.5.13:
     resolution: {integrity: sha512-cxh314tzaWwOLqVes2gnnCtvBDcM1UMdn+iFR+UjAn411dPT3tOmqrJjbMd7koZpMAmBM/GqeV4n9ge7JSiJJQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.4.11
+      vite: 5.4.14
       vue: 3.5.13_typescript@5.7.3
     dev: true
 
@@ -809,8 +809,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  /vite/5.4.11:
-    resolution: {integrity: sha512-c7jFQRklXua0mTzneGW9QVyxFjUgwcihC4bXEtujIo2ouWCe1Ajt/amn2PCxYnhYfd5k09JX3SB7OYWFKYqj8Q==}
+  /vite/5.4.14:
+    resolution: {integrity: sha512-EK5cY7Q1D8JNhSaPKVK4pwBFvaTmZxEnoKXLG/U9gmdDcihQGNzFlgIvaxezFR4glP1LsuiedwMBqCXH3wZccA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
