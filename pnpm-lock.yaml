@@ -15,7 +15,7 @@ specifiers:
 dependencies:
   '@tauri-apps/api': 2.2.0
   '@tauri-apps/plugin-shell': 2.2.0
-  '@tauri-apps/plugin-updater': 2.5.0
+  '@tauri-apps/plugin-updater': 2.5.1
   vue: 3.5.13_typescript@5.7.3
   vue-router: 4.5.0_vue@3.5.13
 
@@ -529,8 +529,8 @@ packages:
       '@tauri-apps/api': 2.2.0
     dev: false
 
-  /@tauri-apps/plugin-updater/2.5.0:
-    resolution: {integrity: sha512-CWpwrkgpMESDPgJ0EuXgQTI/U9zeZQ9NLUvMyuWVrsuRez7tJ/3c7y73LAkvkI6+ekUxVaRJrxYrSfd8W+DRvQ==}
+  /@tauri-apps/plugin-updater/2.5.1:
+    resolution: {integrity: sha512-7fNJraKRbKkxguMY5lG2W20pBvAUkLu+cqnbu0UcK7DqeZgrAnNECcGBIDG6fJ6C+0fAp2V2dMIgznhffOBCcg==}
     dependencies:
       '@tauri-apps/api': 2.2.0
     dev: false
