@@ -16,15 +16,15 @@ dependencies:
   '@tauri-apps/api': 2.4.1
   '@tauri-apps/plugin-shell': 2.2.1
   '@tauri-apps/plugin-updater': 2.7.0
-  vue: 3.5.13_typescript@5.8.2
+  vue: 3.5.13_typescript@5.8.3
   vue-router: 4.5.0_vue@3.5.13
 
 devDependencies:
   '@tauri-apps/cli': 2.4.1
   '@vitejs/plugin-vue': 5.2.1_vite@5.4.11+vue@3.5.13
-  typescript: 5.8.2
+  typescript: 5.8.3
   vite: 5.4.11
-  vue-tsc: 2.2.0_typescript@5.8.2
+  vue-tsc: 2.2.0_typescript@5.8.3
 
 packages:
 
@@ -557,7 +557,7 @@ packages:
       vue: ^3.2.25
     dependencies:
       vite: 5.4.11
-      vue: 3.5.13_typescript@5.8.2
+      vue: 3.5.13_typescript@5.8.3
     dev: true
 
   /@volar/language-core/2.4.11:
@@ -623,7 +623,7 @@ packages:
     resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
     dev: false
 
-  /@vue/language-core/2.2.0_typescript@5.8.2:
+  /@vue/language-core/2.2.0_typescript@5.8.3:
     resolution: {integrity: sha512-O1ZZFaaBGkKbsRfnVH1ifOK1/1BUkyK+3SQsfnh6PmMmD4qJcTU8godCeA96jjDRTL6zgnK7YzCHfaUlH2r0Mw==}
     peerDependencies:
       typescript: '*'
@@ -639,7 +639,7 @@ packages:
       minimatch: 9.0.5
       muggle-string: 0.4.1
       path-browserify: 1.0.1
-      typescript: 5.8.2
+      typescript: 5.8.3
     dev: true
 
   /@vue/reactivity/3.5.13:
@@ -668,7 +668,7 @@ packages:
     dependencies:
       '@vue/compiler-ssr': 3.5.13
       '@vue/shared': 3.5.13
-      vue: 3.5.13_typescript@5.8.2
+      vue: 3.5.13_typescript@5.8.3
 
   /@vue/shared/3.5.13:
     resolution: {integrity: sha512-/hnE/qP5ZoGpol0a5mDi45bOd7t3tjYJBjsgCsivow7D48cJeV5l05RD82lPqi7gRiphZM37rnhW1l6ZoCNNnQ==}
@@ -814,8 +814,8 @@ packages:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
 
-  /typescript/5.8.2:
-    resolution: {integrity: sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==}
+  /typescript/5.8.3:
+    resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -867,21 +867,21 @@ packages:
       vue: ^3.2.0
     dependencies:
       '@vue/devtools-api': 6.6.4
-      vue: 3.5.13_typescript@5.8.2
+      vue: 3.5.13_typescript@5.8.3
     dev: false
 
-  /vue-tsc/2.2.0_typescript@5.8.2:
+  /vue-tsc/2.2.0_typescript@5.8.3:
     resolution: {integrity: sha512-gtmM1sUuJ8aSb0KoAFmK9yMxb8TxjewmxqTJ1aKphD5Cbu0rULFY6+UQT51zW7SpUcenfPUuflKyVwyx9Qdnxg==}
     hasBin: true
     peerDependencies:
       typescript: '>=5.0.0'
     dependencies:
       '@volar/typescript': 2.4.11
-      '@vue/language-core': 2.2.0_typescript@5.8.2
-      typescript: 5.8.2
+      '@vue/language-core': 2.2.0_typescript@5.8.3
+      typescript: 5.8.3
     dev: true
 
-  /vue/3.5.13_typescript@5.8.2:
+  /vue/3.5.13_typescript@5.8.3:
     resolution: {integrity: sha512-wmeiSMxkZCSc+PM2w2VRsOYAZC8GdipNFRTsLSfodVqI9mbejKeXEGr8SckuLnrQPGe3oJN5c3K0vpoU9q/wCQ==}
     peerDependencies:
       typescript: '*'
@@ -894,4 +894,4 @@ packages:
       '@vue/runtime-dom': 3.5.13
       '@vue/server-renderer': 3.5.13_vue@3.5.13
       '@vue/shared': 3.5.13
-      typescript: 5.8.2
+      typescript: 5.8.3
