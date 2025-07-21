@@ -13,7 +13,7 @@ specifiers:
   vue-tsc: ^3.0.0
 
 dependencies:
-  '@tauri-apps/api': 2.6.0
+  '@tauri-apps/api': 2.7.0
   '@tauri-apps/plugin-shell': 2.3.0
   '@tauri-apps/plugin-updater': 2.9.0
   vue: 3.5.13_typescript@5.8.3
@@ -424,8 +424,8 @@ packages:
     dev: true
     optional: true
 
-  /@tauri-apps/api/2.6.0:
-    resolution: {integrity: sha512-hRNcdercfgpzgFrMXWwNDBN0B7vNzOzRepy6ZAmhxi5mDLVPNrTpo9MGg2tN/F7JRugj4d2aF7E1rtPXAHaetg==}
+  /@tauri-apps/api/2.7.0:
+    resolution: {integrity: sha512-v7fVE8jqBl8xJFOcBafDzXFc8FnicoH3j8o8DNNs0tHuEBmXUDqrCOAzMRX0UkfpwqZLqvrvK0GNQ45DfnoVDg==}
     dev: false
 
   /@tauri-apps/cli-darwin-arm64/2.6.2:
@@ -548,13 +548,13 @@ packages:
   /@tauri-apps/plugin-shell/2.3.0:
     resolution: {integrity: sha512-6GIRxO2z64uxPX4CCTuhQzefvCC0ew7HjdBhMALiGw74vFBDY95VWueAHOHgNOMV4UOUAFupyidN9YulTe5xlA==}
     dependencies:
-      '@tauri-apps/api': 2.6.0
+      '@tauri-apps/api': 2.7.0
     dev: false
 
   /@tauri-apps/plugin-updater/2.9.0:
     resolution: {integrity: sha512-j++sgY8XpeDvzImTrzWA08OqqGqgkNyxczLD7FjNJJx/uXxMZFz5nDcfkyoI/rCjYuj2101Tci/r/HFmOmoxCg==}
     dependencies:
-      '@tauri-apps/api': 2.6.0
+      '@tauri-apps/api': 2.7.0
     dev: false
 
   /@types/estree/1.0.6:
